@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajukan Permintaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Form Permintaan Akun Belajar.id</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <div class="mb-3">
+                <label for="nisn" class="form-label">NISN (10 digit)</label>
+                <input type="text" class="form-control" id="nisn" name="nisn" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
+            </div>
+            <div class="mb-3">
+                <label for="kelas" class="form-label">Kelas</label>
+                <input type="text" class="form-control" id="kelas" name="kelas" required>
+            </div>
+            <div class="mb-3">
+                <label for="sekolah" class="form-label">Sekolah</label>
+                <input type="text" class="form-control" id="sekolah" name="sekolah" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email yang Diinginkan</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Ajukan</button>
+        </form>
+        <a href="/" class="btn btn-link">Kembali</a>
+    </div>
+</body>
+</html>
